@@ -1,3 +1,14 @@
+# Version Update Flow:
+#
+# Auto-updated:
+#   - nvfetcher.toml src.manual (version) - by Renovate
+#   - _sources/generated.nix (source hash) - by nvfetcher
+#   - README.md packages table - by sync-readme
+#
+# Manual update required:
+#   - pnpmDeps.hash below - only when pnpm-lock.yaml changes
+#   - If unchanged: CI passes, auto-merge
+#   - If changed: CI fails, manually update hash
 {
   lib,
   stdenv,

@@ -19,13 +19,15 @@ jobs:
     permissions:
       contents: write # push updated sources and readme
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: false
 
-      - uses: cachix/install-nix-action@v31
+      - uses: cachix/install-nix-action@8aa03977d8d733052d78f4e008a241fd1dbf36b3 # v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run nvfetcher
         run: nix run .#nvfetcher
