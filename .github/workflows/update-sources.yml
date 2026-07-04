@@ -1,0 +1,49 @@
+name: Update Sources
+
+on:
+  pull_request:
+    paths:
+      - 'nvfetcher.toml'
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  update:
+    name: Update sources and readme
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write # push updated sources and readme
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
+
+      - uses: cachix/install-nix-action@v31
+
+      - name: Run nvfetcher
+        run: nix run .#nvfetcher
+
+      - name: Run sync-readme
+        run: nix run .#sync-readme
+
+      - name: Commit changes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh auth setup-git
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _sources/ README.md
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update sources and readme"
+            git push
+          fi

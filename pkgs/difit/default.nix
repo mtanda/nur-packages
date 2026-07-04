@@ -53,5 +53,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/yoshiko-pg/difit";
     license = lib.licenses.mit;
     mainProgram = "difit";
+    platforms = lib.platforms.all;
   };
 })

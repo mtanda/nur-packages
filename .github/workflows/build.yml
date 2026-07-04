@@ -7,12 +7,48 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Build (${{ matrix.system }})
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            system: x86_64-linux
+          - os: macos-latest
+            system: aarch64-darwin
+    permissions:
+      contents: read # checkout repository
     steps:
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - uses: cachix/install-nix-action@v31
-      - name: Build difit
-        run: nix build .#difit -L
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Show nixpkgs version
+        run: nix eval --raw 'nixpkgs#lib.version'
+      - name: Build all packages
+        env:
+          NIX_SYSTEM: ${{ matrix.system }}
+        run: |
+          for pkg in $(nix flake show --json | jq -r ".packages.\"${NIX_SYSTEM}\" | keys[]"); do
+            # Check if package supports this platform
+            platforms=$(nix eval --json ".#$pkg.meta.platforms" 2>/dev/null || echo '[]')
+            if echo "$platforms" | jq -e "index(\"${NIX_SYSTEM}\")" > /dev/null 2>&1; then
+              echo "::group::Building $pkg"
+              nix build ".#$pkg" --print-build-logs
+              echo "::endgroup::"
+            else
+              echo "::notice::Skipping $pkg (not supported on ${NIX_SYSTEM})"
+            fi
+          done
