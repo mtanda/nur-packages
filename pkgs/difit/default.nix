@@ -37,6 +37,10 @@ stdenv.mkDerivation (finalAttrs: {
     mkdir -p $out/lib/node_modules/difit
     cp -r dist node_modules package.json $out/lib/node_modules/difit/
 
+    # node_modules links to workspace packages (e.g. packages/vscode) that
+    # aren't copied into $out, leaving dangling symlinks; drop them.
+    find $out/lib/node_modules/difit/node_modules -xtype l -delete
+
     mkdir -p $out/bin
     makeWrapper ${nodejs}/bin/node $out/bin/difit \
       --add-flags "$out/lib/node_modules/difit/dist/cli/index.js"
