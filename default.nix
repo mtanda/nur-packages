@@ -18,9 +18,20 @@ in
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  deck = pkgs.callPackage ./pkgs/deck { inherit sources; };
   difit = pkgs.callPackage ./pkgs/difit { inherit sources; };
   diffyml = pkgs.callPackage ./pkgs/diffyml { inherit sources; };
+  github-comment = pkgs.callPackage ./pkgs/github-comment { inherit sources; };
   leaf = pkgs.callPackage ./pkgs/leaf { inherit sources; };
+  tfcmt = pkgs.callPackage ./pkgs/tfcmt { inherit sources; };
+  vde-layout = pkgs.callPackage ./pkgs/vde-layout { inherit sources; };
+
+  inherit (pkgs.callPackage ./pkgs/yashiki { inherit sources; })
+    yashiki
+    yashiki-layout-tatami
+    yashiki-layout-byobu
+    ;
 
   fff-mcp = pkgs.callPackage ./pkgs/fff-mcp { inherit (pkgs.stdenv.hostPlatform) system; };
+  mo = pkgs.callPackage ./pkgs/mo { inherit (pkgs.stdenv.hostPlatform) system; };
 }

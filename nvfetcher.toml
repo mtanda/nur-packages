@@ -9,3 +9,23 @@ src.manual = "v1.7.1"
 [leaf]
 fetch.github = "RivoLink/leaf"
 src.manual = "1.26.0"
+
+[deck]
+fetch.github = "k1LoW/deck"
+src.manual = "v1.24.0"
+
+[github-comment]
+fetch.github = "suzuki-shunsuke/github-comment"
+src.manual = "v6.3.2"
+
+[tfcmt]
+fetch.github = "suzuki-shunsuke/tfcmt"
+src.manual = "v4.14.7"
+
+[vde-layout]
+fetch.github = "yuki-yano/vde-layout"
+src.manual = "v1.1.1"
+
+[yashiki]
+fetch.github = "typester/yashiki"
+src.manual = "yashiki-v0.14.0"

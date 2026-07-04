@@ -6,6 +6,7 @@
   stdenvNoCC,
   fetchurl,
   autoPatchelfHook,
+  unzip,
   # --- 以下は callPackage 呼び出し側が渡す ---
   system,
   pname,
@@ -36,7 +37,9 @@ stdenvNoCC.mkDerivation (
     dontConfigure = true;
     dontBuild = true;
 
-    nativeBuildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ];
+    nativeBuildInputs =
+      lib.optionals stdenvNoCC.hostPlatform.isLinux [ autoPatchelfHook ]
+      ++ lib.optionals (unpack && lib.hasSuffix ".zip" binary) [ unzip ];
 
     installPhase =
       if unpack then

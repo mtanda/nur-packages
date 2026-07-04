@@ -6,6 +6,17 @@
   dockerTools,
 }:
 {
+  deck = {
+    pname = "deck";
+    version = "v1.24.0";
+    src = fetchFromGitHub {
+      owner = "k1LoW";
+      repo = "deck";
+      rev = "v1.24.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-HbNYUVULPTOXP7z6RIkdSw+Qxe5rnfVs/kvT9/tc0Y4=";
+    };
+  };
   diffyml = {
     pname = "diffyml";
     version = "v1.7.1";
@@ -28,6 +39,17 @@
       sha256 = "sha256-9Nf+hgbACQWUoEHuc/3Nsc3X50/2ZzvUgoIHe62+exk=";
     };
   };
+  github-comment = {
+    pname = "github-comment";
+    version = "v6.3.2";
+    src = fetchFromGitHub {
+      owner = "suzuki-shunsuke";
+      repo = "github-comment";
+      rev = "v6.3.2";
+      fetchSubmodules = false;
+      sha256 = "sha256-6aRgbxa5C6pgYgeTE/vRcqvW1iQjzPxJwQbZMmUo/90=";
+    };
+  };
   leaf = {
     pname = "leaf";
     version = "1.26.0";
@@ -37,6 +59,39 @@
       rev = "1.26.0";
       fetchSubmodules = false;
       sha256 = "sha256-/tMlInOT7ipqZ3ONE70QgmPUw9nDC5+7vgdpCyXqr2E=";
+    };
+  };
+  tfcmt = {
+    pname = "tfcmt";
+    version = "v4.14.7";
+    src = fetchFromGitHub {
+      owner = "suzuki-shunsuke";
+      repo = "tfcmt";
+      rev = "v4.14.7";
+      fetchSubmodules = false;
+      sha256 = "sha256-NyS4DYxrb5ZbXumipOxKixvl4j6dhDplaLi08CC+wFQ=";
+    };
+  };
+  vde-layout = {
+    pname = "vde-layout";
+    version = "v1.1.1";
+    src = fetchFromGitHub {
+      owner = "yuki-yano";
+      repo = "vde-layout";
+      rev = "v1.1.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-sqF/F3g2NoJdVEx98JeTLQGBtm2bD1h0tLQAjD+v+04=";
+    };
+  };
+  yashiki = {
+    pname = "yashiki";
+    version = "yashiki-v0.14.0";
+    src = fetchFromGitHub {
+      owner = "typester";
+      repo = "yashiki";
+      rev = "yashiki-v0.14.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-ePZ8ONdvj3gaQps+5Ua0OLeFdzNdJhoB9yw6pC7qoEQ=";
     };
   };
 }
