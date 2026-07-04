@@ -1,0 +1,67 @@
+name: Update Binary Hashes
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'pkgs/**/sources.json'
+
+permissions: {}
+
+jobs:
+  update-hashes:
+    name: Update prebuilt binary hashes
+    if: github.event.pull_request.user.id == 29139614 # renovate[bot]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.head_ref }}
+      cancel-in-progress: true
+    permissions:
+      contents: write # push updated hashes to PR branch
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
+
+      - uses: cachix/install-nix-action@8aa03977d8d733052d78f4e008a241fd1dbf36b3 # v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Recompute hashes
+        run: |
+          set -euo pipefail
+          for SOURCES_FILE in pkgs/*/sources.json; do
+            echo "::group::$SOURCES_FILE"
+            REPO=$(jq -r '.repo' "$SOURCES_FILE")
+            TAG=$(jq -r '.tag' "$SOURCES_FILE")
+            VERSION=${TAG#v} # 先頭 v を除去（v無しtagはそのまま）
+            for system in $(jq -r '.platforms | keys[]' "$SOURCES_FILE"); do
+              binary=$(jq -r --arg s "$system" '.platforms[$s].binary' "$SOURCES_FILE" \
+                | sed "s/\${version}/${VERSION}/g")
+              url="https://github.com/${REPO}/releases/download/${TAG}/${binary}"
+              echo "$system <- $url"
+              hash=$(nix-prefetch-url --type sha256 "$url" 2>/dev/null)
+              sri=$(nix hash convert --to sri --hash-algo sha256 "$hash")
+              contents=$(jq --arg s "$system" --arg h "$sri" '.platforms[$s].hash = $h' "$SOURCES_FILE")
+              echo "$contents" > "$SOURCES_FILE"
+            done
+            jq . "$SOURCES_FILE" > tmp.json && mv tmp.json "$SOURCES_FILE"
+            echo "::endgroup::"
+          done
+
+      - name: Sync README
+        run: nix run .#sync-readme
+
+      - name: Commit updated hashes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh auth setup-git
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pkgs/*/sources.json README.md
+          git diff --staged --quiet || git commit -m "chore(deps): update prebuilt binary hashes"
+          git push

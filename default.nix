@@ -19,4 +19,6 @@ in
   overlays = import ./overlays; # nixpkgs overlays
 
   difit = pkgs.callPackage ./pkgs/difit { inherit sources; };
+
+  fff-mcp = pkgs.callPackage ./pkgs/fff-mcp { inherit (pkgs.stdenv.hostPlatform) system; };
 }

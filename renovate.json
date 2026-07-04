@@ -31,6 +31,15 @@
       ],
       "datasourceTemplate": "npm",
       "versioningTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["pkgs/.*/sources\\.json$"],
+      "matchStrings": [
+        "\"repo\":\\s*\"(?<depName>[^\"]+)\"[\\s\\S]*?\"tag\":\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
     }
   ]
 }

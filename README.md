@@ -10,6 +10,7 @@
 | Package | Version | Description |
 |---------|---------|-------------|
 | difit | v5.0.6 | A lightweight CLI tool to display Git diffs in GitHub-style web viewer |
+| fff-mcp | 0.9.6 | The fastest and most accurate file search toolkit for AI agents (MCP server) |
 <!-- packages-table-end -->
 
 ## Usage
