@@ -15,6 +15,7 @@
 | fff-mcp | 0.9.6 | The fastest and most accurate file search toolkit for AI agents (MCP server) |
 | github-comment | v6.3.2 | CLI to create and hide GitHub comments |
 | leaf | 1.26.0 | A friendly terminal Markdown previewer |
+| lightpanda | 0.3.4 | Lightweight browser engine for AI agents and web automation |
 | mo | 1.5.6 | CLI tool that opens .md files in a browser with live-reload, syntax highlighting, Mermaid and LaTeX support |
 | tfcmt | v4.14.7 | Tfcmt enhances mercari/tfnotify in many ways, including Terraform >= v0.15 support and advanced formatting options |
 | vde-layout | v1.1.1 | CLI that reproduces tmux or WezTerm terminal layouts from YAML presets |

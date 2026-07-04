@@ -24,6 +24,7 @@ in
   fff-mcp = pkgs.callPackage ./pkgs/fff-mcp { inherit (pkgs.stdenv.hostPlatform) system; };
   github-comment = pkgs.callPackage ./pkgs/github-comment { inherit sources; };
   leaf = pkgs.callPackage ./pkgs/leaf { inherit sources; };
+  lightpanda = pkgs.callPackage ./pkgs/lightpanda { inherit (pkgs.stdenv.hostPlatform) system; };
   mo = pkgs.callPackage ./pkgs/mo { inherit (pkgs.stdenv.hostPlatform) system; };
   tfcmt = pkgs.callPackage ./pkgs/tfcmt { inherit sources; };
   vde-layout = pkgs.callPackage ./pkgs/vde-layout { inherit sources; };
