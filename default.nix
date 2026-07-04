@@ -9,6 +9,9 @@
 
 { pkgs ? import <nixpkgs> { } }:
 
+let
+  sources = pkgs.callPackage ./_sources/generated.nix { };
+in
 {
   # The `lib`, `overlays`, `nixosModules`, `homeModules`,
   # `darwinModules` and `flakeModules` names are special
@@ -22,4 +25,6 @@
   example-package = pkgs.callPackage ./pkgs/example-package { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
+
+  difit = pkgs.callPackage ./pkgs/difit { inherit sources; };
 }

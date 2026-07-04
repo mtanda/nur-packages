@@ -1,0 +1,23 @@
+{
+    "difit": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "difit",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "yoshiko-pg",
+            "repo": "difit",
+            "rev": "v5.0.6",
+            "sha256": "sha256-9Nf+hgbACQWUoEHuc/3Nsc3X50/2ZzvUgoIHe62+exk=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v5.0.6"
+    }
+}

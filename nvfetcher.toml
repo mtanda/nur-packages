@@ -1,0 +1,3 @@
+[difit]
+fetch.github = "yoshiko-pg/difit"
+src.manual = "v5.0.6"
