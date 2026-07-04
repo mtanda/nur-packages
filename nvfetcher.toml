@@ -5,3 +5,7 @@ src.manual = "v5.0.6"
 [diffyml]
 fetch.github = "szhekpisov/diffyml"
 src.manual = "v1.7.1"
+
+[leaf]
+fetch.github = "RivoLink/leaf"
+src.manual = "1.26.0"

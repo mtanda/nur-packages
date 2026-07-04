@@ -40,5 +40,26 @@
             "type": "github"
         },
         "version": "v5.0.6"
+    },
+    "leaf": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "leaf",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "RivoLink",
+            "repo": "leaf",
+            "rev": "1.26.0",
+            "sha256": "sha256-/tMlInOT7ipqZ3ONE70QgmPUw9nDC5+7vgdpCyXqr2E=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "1.26.0"
     }
 }

@@ -28,4 +28,15 @@
       sha256 = "sha256-9Nf+hgbACQWUoEHuc/3Nsc3X50/2ZzvUgoIHe62+exk=";
     };
   };
+  leaf = {
+    pname = "leaf";
+    version = "1.26.0";
+    src = fetchFromGitHub {
+      owner = "RivoLink";
+      repo = "leaf";
+      rev = "1.26.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-/tMlInOT7ipqZ3ONE70QgmPUw9nDC5+7vgdpCyXqr2E=";
+    };
+  };
 }
