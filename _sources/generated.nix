@@ -6,6 +6,17 @@
   dockerTools,
 }:
 {
+  diffyml = {
+    pname = "diffyml";
+    version = "v1.7.1";
+    src = fetchFromGitHub {
+      owner = "szhekpisov";
+      repo = "diffyml";
+      rev = "v1.7.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-bfFerbjpwQuTCnGKfqUj3ydf1xBdNoP+qH7UTmtZvTk=";
+    };
+  };
   difit = {
     pname = "difit";
     version = "v5.0.6";

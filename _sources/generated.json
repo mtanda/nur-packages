@@ -1,4 +1,25 @@
 {
+    "diffyml": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "diffyml",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "szhekpisov",
+            "repo": "diffyml",
+            "rev": "v1.7.1",
+            "sha256": "sha256-bfFerbjpwQuTCnGKfqUj3ydf1xBdNoP+qH7UTmtZvTk=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.7.1"
+    },
     "difit": {
         "cargoLock": null,
         "date": null,
