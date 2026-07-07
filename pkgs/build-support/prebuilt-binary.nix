@@ -24,6 +24,8 @@ let
   platform = sources.platforms.${system} or (throw "${pname}: unsupported system ${system}");
   binary = subst platform.binary;
   url = "https://github.com/${sources.repo}/releases/download/${tag}/${binary}";
+  # アーカイブ内のパスがプラットフォームごとに異なる場合は platforms.<system>.binaryInArchive で上書きする
+  archivePath = subst (platform.binaryInArchive or binaryInArchive);
 in
 stdenvNoCC.mkDerivation (
   {
@@ -43,7 +45,7 @@ stdenvNoCC.mkDerivation (
 
     installPhase =
       if unpack then
-        "install -Dm755 ${binaryInArchive} $out/bin/${installName}"
+        "install -Dm755 ${archivePath} $out/bin/${installName}"
       else
         "install -Dm755 $src $out/bin/${installName}";
 

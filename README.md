@@ -14,6 +14,7 @@
 | difit | v5.0.6 | A lightweight CLI tool to display Git diffs in GitHub-style web viewer |
 | fff-mcp | 0.9.6 | The fastest and most accurate file search toolkit for AI agents (MCP server) |
 | github-comment | v6.3.2 | CLI to create and hide GitHub comments |
+| hunk | 0.16.0 | Review-first terminal diff viewer for agentic coders |
 | leaf | 1.26.0 | A friendly terminal Markdown previewer |
 | lightpanda | 0.3.4 | Lightweight browser engine for AI agents and web automation |
 | mo | 1.5.6 | CLI tool that opens .md files in a browser with live-reload, syntax highlighting, Mermaid and LaTeX support |

@@ -23,6 +23,7 @@ in
   difit = pkgs.callPackage ./pkgs/difit { inherit sources; };
   fff-mcp = pkgs.callPackage ./pkgs/fff-mcp { inherit (pkgs.stdenv.hostPlatform) system; };
   github-comment = pkgs.callPackage ./pkgs/github-comment { inherit sources; };
+  hunk = pkgs.callPackage ./pkgs/hunk { inherit (pkgs.stdenv.hostPlatform) system; };
   leaf = pkgs.callPackage ./pkgs/leaf { inherit sources; };
   lightpanda = pkgs.callPackage ./pkgs/lightpanda { inherit (pkgs.stdenv.hostPlatform) system; };
   mo = pkgs.callPackage ./pkgs/mo { inherit (pkgs.stdenv.hostPlatform) system; };
