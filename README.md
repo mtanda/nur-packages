@@ -20,9 +20,9 @@
 | mo | 1.5.6 | CLI tool that opens .md files in a browser with live-reload, syntax highlighting, Mermaid and LaTeX support |
 | tfcmt | v4.14.7 | Tfcmt enhances mercari/tfnotify in many ways, including Terraform >= v0.15 support and advanced formatting options |
 | vde-layout | v1.1.1 | CLI that reproduces tmux or WezTerm terminal layouts from YAML presets |
-| yashiki | yashiki-v0.14.0 | macOS tiling window manager daemon and CLI |
-| yashiki-layout-byobu | yashiki-v0.14.0 | Accordion layout engine for yashiki |
-| yashiki-layout-tatami | yashiki-v0.14.0 | Master-stack layout engine for yashiki |
+| yashiki | yashiki-v0.15.2 | macOS tiling window manager daemon and CLI |
+| yashiki-layout-byobu | yashiki-v0.15.2 | Accordion layout engine for yashiki |
+| yashiki-layout-tatami | yashiki-v0.15.2 | Master-stack layout engine for yashiki |
 <!-- packages-table-end -->
 
 ## Usage

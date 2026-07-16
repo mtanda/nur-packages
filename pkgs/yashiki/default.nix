@@ -16,7 +16,7 @@
 }:
 let
   inherit (sources.yashiki) version src;
-  cargoHash = "sha256-JMrftBKyD188SZqEGI4fA/MrfEK8JLKSeEqrQxhSs3U=";
+  cargoHash = "sha256-3JxtsSipMbMxQO58ZLJbQVrOFFC7FoVguNpqdoL+ziQ=";
 
   mkPkg =
     {

@@ -28,4 +28,4 @@ src.manual = "v1.1.1"
 
 [yashiki]
 fetch.github = "typester/yashiki"
-src.manual = "yashiki-v0.14.0"
+src.manual = "yashiki-v0.15.2"

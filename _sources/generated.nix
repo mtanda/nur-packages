@@ -85,13 +85,13 @@
   };
   yashiki = {
     pname = "yashiki";
-    version = "yashiki-v0.14.0";
+    version = "yashiki-v0.15.2";
     src = fetchFromGitHub {
       owner = "typester";
       repo = "yashiki";
-      rev = "yashiki-v0.14.0";
+      rev = "yashiki-v0.15.2";
       fetchSubmodules = false;
-      sha256 = "sha256-ePZ8ONdvj3gaQps+5Ua0OLeFdzNdJhoB9yw6pC7qoEQ=";
+      sha256 = "sha256-nsmUuhi0yy6x6POC4qLbMib4fxS3QRjlK6QgCiVEnyQ=";
     };
   };
 }
