@@ -17,7 +17,7 @@
 buildGoModule {
   inherit (sources.tfcmt) pname version src;
 
-  vendorHash = "sha256-rb8ksN+fKRJ+nxDV3TElvDuJdDr5SBPJERKOb5lsxOc=";
+  vendorHash = "sha256-m3BofzogEWESOskTQfibm56QHJNf7sHbvA7Q1DDwno4=";
 
   ldflags = [
     "-s"
