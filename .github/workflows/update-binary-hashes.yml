@@ -13,12 +13,15 @@ jobs:
     name: Update prebuilt binary hashes
     if: github.event.pull_request.user.id == 29139614 # renovate[bot]
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Build workflow (full matrix build incl. macOS) の完了待ちを含むため長めに確保
+    timeout-minutes: 45
     concurrency:
       group: ${{ github.workflow }}-${{ github.head_ref }}
       cancel-in-progress: true
     permissions:
-      contents: write # push updated hashes to PR branch
+      contents: write # push updated hashes to PR branch, create merge commit
+      pull-requests: write # auto-merge after verification succeeds
+      actions: write # trigger & watch the Build workflow re-run
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
@@ -56,6 +59,7 @@ jobs:
         run: nix run .#sync-readme
 
       - name: Commit updated hashes
+        id: commit
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -63,5 +67,48 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add pkgs/*/sources.json README.md
-          git diff --staged --quiet || git commit -m "chore(deps): update prebuilt binary hashes"
-          git push
+          if git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore(deps): update prebuilt binary hashes"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # renovate PR は tag だけ更新するので、上のコミットで正しい hash を push した
+      # 直後にマージしないと、待たずにマージして hash mismatch のまま main に入る事故が
+      # 起きる（過去に実際発生）。ここで Build workflow (macOS 実機ビルド含む) を
+      # 再実行させ、その完了を待ってから初めてマージする。
+      - name: Trigger full build verification
+        id: trigger
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          set -euo pipefail
+          gh workflow run build.yml --ref "$HEAD_REF"
+          RUN_ID=""
+          for _ in $(seq 1 12); do
+            sleep 5
+            RUN_ID=$(gh run list --workflow=build.yml --branch "$HEAD_REF" \
+              --event workflow_dispatch --json databaseId,createdAt \
+              --jq 'sort_by(.createdAt) | last | .databaseId // empty')
+            [ -n "$RUN_ID" ] && break
+          done
+          if [ -z "$RUN_ID" ]; then
+            echo "::error::Could not find the triggered Build workflow run"
+            exit 1
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for build verification
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ steps.trigger.outputs.run_id }}
+        run: gh run watch "$RUN_ID" --exit-status
+
+      - name: Merge pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: gh pr merge "$PR_NUMBER" --merge
