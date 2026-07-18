@@ -19,13 +19,13 @@
   };
   deck = {
     pname = "deck";
-    version = "v1.24.0";
+    version = "v1.24.1";
     src = fetchFromGitHub {
       owner = "k1LoW";
       repo = "deck";
-      rev = "v1.24.0";
+      rev = "v1.24.1";
       fetchSubmodules = false;
-      sha256 = "sha256-HbNYUVULPTOXP7z6RIkdSw+Qxe5rnfVs/kvT9/tc0Y4=";
+      sha256 = "sha256-uLuVHgI0Mp6d3ZZoKK6I+Hcg3uQ0iYUle1E0exbf2h4=";
     };
   };
   diffyml = {

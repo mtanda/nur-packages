@@ -4,7 +4,7 @@ src.manual = "v1.1.8"
 
 [deck]
 fetch.github = "k1LoW/deck"
-src.manual = "v1.24.0"
+src.manual = "v1.24.1"
 
 [diffyml]
 fetch.github = "szhekpisov/diffyml"
