@@ -41,13 +41,13 @@
   };
   difit = {
     pname = "difit";
-    version = "v5.0.6";
+    version = "v5.0.7";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "v5.0.6";
+      rev = "v5.0.7";
       fetchSubmodules = false;
-      sha256 = "sha256-9Nf+hgbACQWUoEHuc/3Nsc3X50/2ZzvUgoIHe62+exk=";
+      sha256 = "sha256-LwqfnZTo4m+B2rpMWY0SEomsVtSuCxqnM24D9bq9j40=";
     };
   };
   github-comment = {
