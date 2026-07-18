@@ -18,6 +18,7 @@ in
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  agmsg = pkgs.callPackage ./pkgs/agmsg { inherit sources; };
   deck = pkgs.callPackage ./pkgs/deck { inherit sources; };
   diffyml = pkgs.callPackage ./pkgs/diffyml { inherit sources; };
   difit = pkgs.callPackage ./pkgs/difit { inherit sources; };

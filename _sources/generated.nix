@@ -6,6 +6,17 @@
   dockerTools,
 }:
 {
+  agmsg = {
+    pname = "agmsg";
+    version = "v1.1.8";
+    src = fetchFromGitHub {
+      owner = "fujibee";
+      repo = "agmsg";
+      rev = "v1.1.8";
+      fetchSubmodules = false;
+      sha256 = "sha256-p2K4w1hHkldw4HWAO2EpSX0eLwUGH/ae0BAIadblvPA=";
+    };
+  };
   deck = {
     pname = "deck";
     version = "v1.24.0";

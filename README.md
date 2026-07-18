@@ -9,6 +9,7 @@
 <!-- packages-table-start -->
 | Package | Version | Description |
 |---------|---------|-------------|
+| agmsg | v1.1.8 | Cross-vendor messaging for CLI AI coding agents — let Claude Code, Codex, Gemini & Copilot talk to each other in one team |
 | deck | v1.24.0 | Create presentations by combining Markdown content with Google Slides design |
 | diffyml | v1.7.1 | A fast, structural YAML diff tool |
 | difit | v5.0.6 | A lightweight CLI tool to display Git diffs in GitHub-style web viewer |

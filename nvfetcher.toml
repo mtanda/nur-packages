@@ -1,3 +1,7 @@
+[agmsg]
+fetch.github = "fujibee/agmsg"
+src.manual = "v1.1.8"
+
 [deck]
 fetch.github = "k1LoW/deck"
 src.manual = "v1.24.0"

@@ -1,4 +1,25 @@
 {
+    "agmsg": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "agmsg",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "fujibee",
+            "repo": "agmsg",
+            "rev": "v1.1.8",
+            "sha256": "sha256-p2K4w1hHkldw4HWAO2EpSX0eLwUGH/ae0BAIadblvPA=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.1.8"
+    },
     "deck": {
         "cargoLock": null,
         "date": null,
