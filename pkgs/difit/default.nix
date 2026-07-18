@@ -33,6 +33,11 @@ stdenv.mkDerivation (finalAttrs: {
     inherit (finalAttrs) pname version src;
     hash = "sha256-usFNABztdR24zn+CQ/w8CnpFpY7DQEDrNmNzmGhZgD4=";
     fetcherVersion = 4;
+    # Large lockfile (~800 deps incl. every optional platform's native
+    # binaries, fetched unconditionally by fetchPnpmDeps). Default
+    # network-concurrency (16) parallel fetch+decompress can OOM-kill the
+    # GitHub-hosted macOS runner; trade install time for lower peak memory.
+    pnpmInstallFlags = [ "--network-concurrency=4" ];
   };
 
   buildPhase = ''
