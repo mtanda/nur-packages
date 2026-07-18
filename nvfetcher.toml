@@ -16,7 +16,7 @@ src.manual = "v5.0.7"
 
 [github-comment]
 fetch.github = "suzuki-shunsuke/github-comment"
-src.manual = "v6.3.2"
+src.manual = "v6.4.1"
 
 [leaf]
 fetch.github = "RivoLink/leaf"
