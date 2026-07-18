@@ -11,7 +11,7 @@
 |---------|---------|-------------|
 | deck | v1.24.0 | Create presentations by combining Markdown content with Google Slides design |
 | diffyml | v1.7.1 | A fast, structural YAML diff tool |
-| difit | v5.0.6 | A lightweight CLI tool to display Git diffs in GitHub-style web viewer |
+| difit | v5.0.7 | A lightweight CLI tool to display Git diffs in GitHub-style web viewer |
 | fff-mcp | 0.9.6 | The fastest and most accurate file search toolkit for AI agents (MCP server) |
 | github-comment | v6.3.2 | CLI to create and hide GitHub comments |
 | hunk | 0.16.0 | Review-first terminal diff viewer for agentic coders |
