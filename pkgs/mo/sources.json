@@ -4,7 +4,7 @@
   "platforms": {
     "aarch64-darwin": {
       "binary": "mo_v${version}_darwin_arm64.zip",
-      "hash": "sha256-c39CBhcRm8r59GfN1jg5E0EVTiHB4j997ssllsL9twY="
+      "hash": "sha256-j3+q2piY+XJkzUvdtuLfy8pBs4yeSrc+T+Racs2Kt0M="
     },
     "x86_64-darwin": {
       "binary": "mo_v${version}_darwin_amd64.zip",
