@@ -20,7 +20,7 @@ src.manual = "1.26.0"
 
 [tfcmt]
 fetch.github = "suzuki-shunsuke/tfcmt"
-src.manual = "v4.14.7"
+src.manual = "v4.14.15"
 
 [vde-layout]
 fetch.github = "yuki-yano/vde-layout"
