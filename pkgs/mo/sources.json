@@ -1,6 +1,6 @@
 {
   "repo": "k1LoW/mo",
-  "tag": "v1.5.6",
+  "tag": "v1.6.3",
   "platforms": {
     "aarch64-darwin": {
       "binary": "mo_v${version}_darwin_arm64.zip",
