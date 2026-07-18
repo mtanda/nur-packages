@@ -12,7 +12,7 @@ src.manual = "v1.7.1"
 
 [difit]
 fetch.github = "yoshiko-pg/difit"
-src.manual = "v5.0.7"
+src.manual = "v5.0.8"
 
 [github-comment]
 fetch.github = "suzuki-shunsuke/github-comment"
