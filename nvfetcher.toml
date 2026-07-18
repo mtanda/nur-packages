@@ -8,7 +8,7 @@ src.manual = "v1.24.1"
 
 [diffyml]
 fetch.github = "szhekpisov/diffyml"
-src.manual = "v1.7.1"
+src.manual = "v1.8.0"
 
 [difit]
 fetch.github = "yoshiko-pg/difit"
