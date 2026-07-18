@@ -63,13 +63,13 @@
   };
   tfcmt = {
     pname = "tfcmt";
-    version = "v4.14.7";
+    version = "v4.14.15";
     src = fetchFromGitHub {
       owner = "suzuki-shunsuke";
       repo = "tfcmt";
-      rev = "v4.14.7";
+      rev = "v4.14.15";
       fetchSubmodules = false;
-      sha256 = "sha256-NyS4DYxrb5ZbXumipOxKixvl4j6dhDplaLi08CC+wFQ=";
+      sha256 = "sha256-+F+g8fDleZ0bP57aAjMytUfT2sNhf/4T5XlE4+cJwgA=";
     };
   };
   vde-layout = {
