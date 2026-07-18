@@ -7,17 +7,20 @@ on:
 
 permissions: {}
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   update:
     name: Update sources and readme
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # vendorHash 再計算のビルドと、Build workflow (macOS 実機ビルド含む) の完了待ちを
+    # 含むため長めに確保
+    timeout-minutes: 45
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.head_ref }}
+      cancel-in-progress: true
     permissions:
-      contents: write # push updated sources and readme
+      contents: write # push updated sources/readme/vendorHash, create merge commit
+      pull-requests: write # auto-merge after verification succeeds (renovate PRs only)
+      actions: write # trigger & watch the Build workflow re-run (renovate PRs only)
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
@@ -29,23 +32,109 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71 # v17
+        with:
+          name: mtanda
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
       - name: Run nvfetcher
         run: nix run .#nvfetcher
 
       - name: Run sync-readme
         run: nix run .#sync-readme
 
+      # buildGoModule パッケージの vendorHash は go.sum が変わると追従できず、
+      # 手動更新待ちのまま renovate PR がマージされて main が壊れる事故が
+      # 過去に起きた（deck, tfcmt）。ここで一度ビルドを試し、go-modules の
+      # fixed-output derivation が hash mismatch で落ちた場合のみ、実測値
+      # (got) を default.nix に書き戻して再ビルドで確認する。
+      # それ以外の理由(依存の実際のビルド失敗等)で落ちた場合は自動修正せず、
+      # ここでワークフローを失敗させて人間の確認に委ねる。
+      - name: Recompute go module vendorHash
+        run: |
+          set -euo pipefail
+          for f in pkgs/*/default.nix; do
+            grep -q 'vendorHash *= *"sha256-' "$f" || continue
+            PKG=$(basename "$(dirname "$f")")
+            echo "::group::Checking vendorHash for $PKG"
+            LOG="$(mktemp)"
+            if nix build ".#$PKG" --no-link --print-build-logs > "$LOG" 2>&1; then
+              echo "$PKG: OK with current vendorHash"
+            elif grep -q -- '-go-modules\.drv' "$LOG" && grep -q 'hash mismatch in fixed-output derivation' "$LOG"; then
+              GOT=$(grep -m1 '^ *got: *' "$LOG" | awk '{print $2}')
+              CURRENT=$(grep -oP 'vendorHash *= *"\K[^"]+' "$f")
+              if [ -z "$GOT" ] || [ -z "$CURRENT" ]; then
+                echo "::error::$PKG: vendorHash mismatch detected but could not parse hashes"
+                cat "$LOG"
+                exit 1
+              fi
+              echo "$PKG: vendorHash $CURRENT -> $GOT"
+              sed -i "s|vendorHash *= *\"$CURRENT\"|vendorHash = \"$GOT\"|" "$f"
+              if ! nix build ".#$PKG" --no-link --print-build-logs; then
+                echo "::error::$PKG: still fails to build after vendorHash update"
+                exit 1
+              fi
+            else
+              echo "::error::$PKG: build failed for a reason unrelated to vendorHash"
+              cat "$LOG"
+              exit 1
+            fi
+            rm -f "$LOG"
+            echo "::endgroup::"
+          done
+
       - name: Commit changes
+        id: commit
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh auth setup-git
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add _sources/ README.md
+          git add _sources/ README.md pkgs/*/default.nix
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "chore: update sources and readme"
+            git commit -m "chore: update sources, readme and vendor hashes"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # 自動マージは renovate[bot] が作成した PR に限定する。手動 PR の場合は
+      # ここまでの sources/readme/vendorHash 更新のみ行い、マージは人間に委ねる。
+      - name: Trigger full build verification
+        if: github.event.pull_request.user.id == 29139614
+        id: trigger
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          set -euo pipefail
+          gh workflow run build.yml --ref "$HEAD_REF"
+          RUN_ID=""
+          for _ in $(seq 1 12); do
+            sleep 5
+            RUN_ID=$(gh run list --workflow=build.yml --branch "$HEAD_REF" \
+              --event workflow_dispatch --json databaseId,createdAt \
+              --jq 'sort_by(.createdAt) | last | .databaseId // empty')
+            [ -n "$RUN_ID" ] && break
+          done
+          if [ -z "$RUN_ID" ]; then
+            echo "::error::Could not find the triggered Build workflow run"
+            exit 1
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for build verification
+        if: github.event.pull_request.user.id == 29139614
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ steps.trigger.outputs.run_id }}
+        run: gh run watch "$RUN_ID" --exit-status
+
+      - name: Merge pull request
+        if: github.event.pull_request.user.id == 29139614
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: gh pr merge "$PR_NUMBER" --merge
