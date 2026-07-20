@@ -20,7 +20,7 @@ src.manual = "v6.4.1"
 
 [leaf]
 fetch.github = "RivoLink/leaf"
-src.manual = "1.26.0"
+src.manual = "1.26.1"
 
 [tfcmt]
 fetch.github = "suzuki-shunsuke/tfcmt"
