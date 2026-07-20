@@ -52,24 +52,24 @@
   };
   github-comment = {
     pname = "github-comment";
-    version = "v6.3.2";
+    version = "v6.4.1";
     src = fetchFromGitHub {
       owner = "suzuki-shunsuke";
       repo = "github-comment";
-      rev = "v6.3.2";
+      rev = "v6.4.1";
       fetchSubmodules = false;
-      sha256 = "sha256-6aRgbxa5C6pgYgeTE/vRcqvW1iQjzPxJwQbZMmUo/90=";
+      sha256 = "sha256-wMSYGpwb0HNcfpaYg1wC0kBpV0dmhC1o3IWPuUrwx3U=";
     };
   };
   leaf = {
     pname = "leaf";
-    version = "1.26.0";
+    version = "1.26.1";
     src = fetchFromGitHub {
       owner = "RivoLink";
       repo = "leaf";
-      rev = "1.26.0";
+      rev = "1.26.1";
       fetchSubmodules = false;
-      sha256 = "sha256-/tMlInOT7ipqZ3ONE70QgmPUw9nDC5+7vgdpCyXqr2E=";
+      sha256 = "sha256-faZ3yiAdPbN1Pxf7Gss62eYUJzaJ3ZF5BZyCVqHOC4s=";
     };
   };
   tfcmt = {
