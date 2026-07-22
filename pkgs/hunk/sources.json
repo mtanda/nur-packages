@@ -1,6 +1,6 @@
 {
   "repo": "modem-dev/hunk",
-  "tag": "v0.17.0",
+  "tag": "v0.17.1",
   "platforms": {
     "aarch64-darwin": {
       "binary": "hunkdiff-darwin-arm64.tar.gz",
