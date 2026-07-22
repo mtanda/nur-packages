@@ -1,22 +1,22 @@
 {
   "repo": "k1LoW/mo",
-  "tag": "v1.6.3",
+  "tag": "v1.6.5",
   "platforms": {
     "aarch64-darwin": {
       "binary": "mo_v${version}_darwin_arm64.zip",
-      "hash": "sha256-j3+q2piY+XJkzUvdtuLfy8pBs4yeSrc+T+Racs2Kt0M="
+      "hash": "sha256-I6CffUnSiD7+V1klfTHkd13QSsEEu+4F+oYWqzNvOUE="
     },
     "x86_64-darwin": {
       "binary": "mo_v${version}_darwin_amd64.zip",
-      "hash": "sha256-xrlRiFYW9dEDBGD6lC4HHPZGNjdPiSAUJ8cmssQkXpM="
+      "hash": "sha256-x8QPkVJObA1Jb9/dgj2ypJYAI4BJYKSk0CWfyQgpGlc="
     },
     "aarch64-linux": {
       "binary": "mo_v${version}_linux_arm64.tar.gz",
-      "hash": "sha256-YQYDzRiMq/WsxRSFCDnrC1jzVtuO7auK8afU0Adn+Ww="
+      "hash": "sha256-FoACnFpXf56ztDj7/vUaG5GKeHxid+4SVSjAGHl2xns="
     },
     "x86_64-linux": {
       "binary": "mo_v${version}_linux_amd64.tar.gz",
-      "hash": "sha256-sobqdBSeLI9zzbjjioK9YiOnhpYoAb3pq2p1CcJcjfA="
+      "hash": "sha256-moBJ21rkKRA49nn2CiodFrp0Fha7k61VDYB1EJWmg4A="
     }
   }
 }
