@@ -4,11 +4,11 @@
   "platforms": {
     "aarch64-darwin": {
       "binary": "fff-mcp-aarch64-apple-darwin",
-      "hash": "sha256-Kaf63q+wYvPllUsauMaeFNyiT14GHNjTseobqzhaN1Q="
+      "hash": "sha256-pblapLWGHlx0QP7eYFbMeGEiOr2leW2qvlH3hUWCEcM="
     },
     "x86_64-darwin": {
       "binary": "fff-mcp-x86_64-apple-darwin",
-      "hash": "sha256-WCWTJMLBOhtvJPExOMLNPq6f8g4FIBpTm+uPIESmUao="
+      "hash": "sha256-gais3HsXt/9UuqpqI5QpdIVf3+QTP5c0fJsMtE6d958="
     }
   }
 }
