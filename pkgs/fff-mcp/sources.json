@@ -1,6 +1,6 @@
 {
   "repo": "dmtrKovalenko/fff",
-  "tag": "v0.9.6",
+  "tag": "v0.10.0",
   "platforms": {
     "aarch64-darwin": {
       "binary": "fff-mcp-aarch64-apple-darwin",
