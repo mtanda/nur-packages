@@ -97,12 +97,12 @@
             "name": null,
             "owner": "suzuki-shunsuke",
             "repo": "github-comment",
-            "rev": "v6.3.2",
-            "sha256": "sha256-6aRgbxa5C6pgYgeTE/vRcqvW1iQjzPxJwQbZMmUo/90=",
+            "rev": "v6.4.1",
+            "sha256": "sha256-wMSYGpwb0HNcfpaYg1wC0kBpV0dmhC1o3IWPuUrwx3U=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v6.3.2"
+        "version": "v6.4.1"
     },
     "leaf": {
         "cargoLock": null,
@@ -139,12 +139,12 @@
             "name": null,
             "owner": "suzuki-shunsuke",
             "repo": "tfcmt",
-            "rev": "v4.14.15",
-            "sha256": "sha256-+F+g8fDleZ0bP57aAjMytUfT2sNhf/4T5XlE4+cJwgA=",
+            "rev": "v4.14.18",
+            "sha256": "sha256-pXIdApuzIn9a+jVj3tyTQPl35nc9aFzml++n5M/TZAg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v4.14.15"
+        "version": "v4.14.18"
     },
     "vde-layout": {
         "cargoLock": null,
