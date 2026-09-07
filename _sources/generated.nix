@@ -52,13 +52,13 @@
   };
   github-comment = {
     pname = "github-comment";
-    version = "v6.3.2";
+    version = "v6.4.1";
     src = fetchFromGitHub {
       owner = "suzuki-shunsuke";
       repo = "github-comment";
-      rev = "v6.3.2";
+      rev = "v6.4.1";
       fetchSubmodules = false;
-      sha256 = "sha256-6aRgbxa5C6pgYgeTE/vRcqvW1iQjzPxJwQbZMmUo/90=";
+      sha256 = "sha256-wMSYGpwb0HNcfpaYg1wC0kBpV0dmhC1o3IWPuUrwx3U=";
     };
   };
   leaf = {
@@ -85,13 +85,13 @@
   };
   vde-layout = {
     pname = "vde-layout";
-    version = "v1.1.1";
+    version = "v2.0.2";
     src = fetchFromGitHub {
       owner = "yuki-yano";
       repo = "vde-layout";
-      rev = "v1.1.1";
+      rev = "v2.0.2";
       fetchSubmodules = false;
-      sha256 = "sha256-sqF/F3g2NoJdVEx98JeTLQGBtm2bD1h0tLQAjD+v+04=";
+      sha256 = "sha256-mU0ezr4SfCnuFif4B8J2/0kcDuhqxZakbEadoK2FXC8=";
     };
   };
   yashiki = {
