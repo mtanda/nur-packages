@@ -8,13 +8,13 @@
 {
   agmsg = {
     pname = "agmsg";
-    version = "v1.1.8";
+    version = "v1.2.3";
     src = fetchFromGitHub {
       owner = "fujibee";
       repo = "agmsg";
-      rev = "v1.1.8";
+      rev = "v1.2.3";
       fetchSubmodules = false;
-      sha256 = "sha256-p2K4w1hHkldw4HWAO2EpSX0eLwUGH/ae0BAIadblvPA=";
+      sha256 = "sha256-h0gUdCG2D3xQ+9lW5dKlkFKuP2Uf+oSdHJnQSE4l6kQ=";
     };
   };
   deck = {
@@ -52,13 +52,13 @@
   };
   github-comment = {
     pname = "github-comment";
-    version = "v6.3.2";
+    version = "v6.4.1";
     src = fetchFromGitHub {
       owner = "suzuki-shunsuke";
       repo = "github-comment";
-      rev = "v6.3.2";
+      rev = "v6.4.1";
       fetchSubmodules = false;
-      sha256 = "sha256-6aRgbxa5C6pgYgeTE/vRcqvW1iQjzPxJwQbZMmUo/90=";
+      sha256 = "sha256-wMSYGpwb0HNcfpaYg1wC0kBpV0dmhC1o3IWPuUrwx3U=";
     };
   };
   leaf = {
