@@ -8,11 +8,11 @@
     },
     "x86_64-darwin": {
       "binary": "mo_v${version}_darwin_amd64.zip",
-      "hash": "sha256-xrlRiFYW9dEDBGD6lC4HHPZGNjdPiSAUJ8cmssQkXpM="
+      "hash": "sha256-EU9uYl0zbdj86CjGM+BrteziRiWnTaMLvU4LwAeHALc="
     },
     "aarch64-linux": {
       "binary": "mo_v${version}_linux_arm64.tar.gz",
-      "hash": "sha256-YQYDzRiMq/WsxRSFCDnrC1jzVtuO7auK8afU0Adn+Ww="
+      "hash": "sha256-Lf/L2HG0TsUkIW81VR1sEuzHk9amoV6MT/2KsJ1F40w="
     },
     "x86_64-linux": {
       "binary": "mo_v${version}_linux_amd64.tar.gz",
