@@ -5,22 +5,22 @@
     "aarch64-darwin": {
       "binary": "hunkdiff-darwin-arm64.tar.gz",
       "binaryInArchive": "hunkdiff-darwin-arm64/hunk",
-      "hash": "sha256-cAIhZppRt4yDWYW0nKZ+Wku6r9tDSmygP50mL3qCaT4="
+      "hash": "sha256-D1Yv3WqzRsfZHEdV49lAn84dL3Lage/VK9t+RDHEsF4="
     },
     "x86_64-darwin": {
       "binary": "hunkdiff-darwin-x64.tar.gz",
       "binaryInArchive": "hunkdiff-darwin-x64/hunk",
-      "hash": "sha256-Y24JxZp0gdehL7wvDcVKz7wChoE2BNhqUrNkRzkiJiQ="
+      "hash": "sha256-ivJngImHROGgD0a3WXS5oJP2r/VQt60gbVWHxJf0oXQ="
     },
     "aarch64-linux": {
       "binary": "hunkdiff-linux-arm64.tar.gz",
       "binaryInArchive": "hunkdiff-linux-arm64/hunk",
-      "hash": "sha256-RhZBJhSLf7RZwV+5qSGTkX2lt6XFCbSzai3N86sE9Ns="
+      "hash": "sha256-2p8VZCe86aCGCd5msxC6WPER6jHWY4ynzbCM9KadnhY="
     },
     "x86_64-linux": {
       "binary": "hunkdiff-linux-x64.tar.gz",
       "binaryInArchive": "hunkdiff-linux-x64/hunk",
-      "hash": "sha256-DGJvemaHqYJjBOod9pbaXUnt+EJx7M31f//1g0KJ4OI="
+      "hash": "sha256-XygDdPKrD8TEgmapkJ7hsODFnXfdmaNA8cJvISXSIps="
     }
   }
 }
