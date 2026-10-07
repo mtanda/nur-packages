@@ -1,26 +1,26 @@
 {
   "repo": "modem-dev/hunk",
-  "tag": "v0.17.0",
+  "tag": "v0.23.0",
   "platforms": {
     "aarch64-darwin": {
       "binary": "hunkdiff-darwin-arm64.tar.gz",
       "binaryInArchive": "hunkdiff-darwin-arm64/hunk",
-      "hash": "sha256-cAIhZppRt4yDWYW0nKZ+Wku6r9tDSmygP50mL3qCaT4="
+      "hash": "sha256-rkLP5SeYpPUdJfY864aFyipsswOaEk1qb8FyoRL41rg="
     },
     "x86_64-darwin": {
       "binary": "hunkdiff-darwin-x64.tar.gz",
       "binaryInArchive": "hunkdiff-darwin-x64/hunk",
-      "hash": "sha256-Y24JxZp0gdehL7wvDcVKz7wChoE2BNhqUrNkRzkiJiQ="
+      "hash": "sha256-FMUwJct7s6/WJztlgXq3oQArH46Usk46BU6VJk4WgOA="
     },
     "aarch64-linux": {
       "binary": "hunkdiff-linux-arm64.tar.gz",
       "binaryInArchive": "hunkdiff-linux-arm64/hunk",
-      "hash": "sha256-RhZBJhSLf7RZwV+5qSGTkX2lt6XFCbSzai3N86sE9Ns="
+      "hash": "sha256-W4korh6YeysXddH+Yu66vMCLn8mUAVTgzvJ9JJQct+Q="
     },
     "x86_64-linux": {
       "binary": "hunkdiff-linux-x64.tar.gz",
       "binaryInArchive": "hunkdiff-linux-x64/hunk",
-      "hash": "sha256-DGJvemaHqYJjBOod9pbaXUnt+EJx7M31f//1g0KJ4OI="
+      "hash": "sha256-eatkBsuyuADnPG+8JUavuX7U+8O1Cq0HLrmtEhUVgeY="
     }
   }
 }
