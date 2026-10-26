@@ -28,7 +28,7 @@ src.manual = "v4.14.15"
 
 [vde-layout]
 fetch.github = "yuki-yano/vde-layout"
-src.manual = "v1.1.1"
+src.manual = "v2.0.2"
 
 [yashiki]
 fetch.github = "typester/yashiki"
