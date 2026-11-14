@@ -1,22 +1,22 @@
 {
   "repo": "lightpanda-io/browser",
-  "tag": "0.3.4",
+  "tag": "1.0.3",
   "platforms": {
     "x86_64-linux": {
       "binary": "lightpanda-x86_64-linux",
-      "hash": "sha256-u88VtlHeRseNGz9WSJXnK+uNnYHFp/mwvQAEnCsxH24="
+      "hash": "sha256-U+s02gkVnc+PBIZdv+PmPpplIGJoRJWqfO1d3XyC6LA="
     },
     "aarch64-linux": {
       "binary": "lightpanda-aarch64-linux",
-      "hash": "sha256-A0ng+VuME7mMDtOs4Xa7zsrs7EZ0qaLPrt1TeU9CYJQ="
+      "hash": "sha256-IKU0i/O29x5BCIIjsYhVKrVQwbnJqcvY8Jnm9/PXhUk="
     },
     "x86_64-darwin": {
       "binary": "lightpanda-x86_64-macos",
-      "hash": "sha256-AOoUlaoGMdiPMFVsKXDWI5YeNwTX3Pp2Ihlw4q8EjSA="
+      "hash": "sha256-7IFV03vEpdyncO2s0Xzu2noHpe+M9L3iLw+PqLIg9fs="
     },
     "aarch64-darwin": {
       "binary": "lightpanda-aarch64-macos",
-      "hash": "sha256-jydTB9N3yCwUyCeIbsFm+aNAtJxtFzJDnmqfO6q18i0="
+      "hash": "sha256-evr2fnKu4CQ+GuxWzrpdLyAMfwGLBl9y6E1Er9da8dE="
     }
   }
 }
