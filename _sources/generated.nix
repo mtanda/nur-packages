@@ -30,13 +30,13 @@
   };
   diffyml = {
     pname = "diffyml";
-    version = "v1.7.1";
+    version = "v1.8.3";
     src = fetchFromGitHub {
       owner = "szhekpisov";
       repo = "diffyml";
-      rev = "v1.7.1";
+      rev = "v1.8.3";
       fetchSubmodules = false;
-      sha256 = "sha256-bfFerbjpwQuTCnGKfqUj3ydf1xBdNoP+qH7UTmtZvTk=";
+      sha256 = "sha256-sIZujFk6SH+4e5iBmQkEy8gmaN9LCSU6mnrkB6FHqYo=";
     };
   };
   difit = {
@@ -52,13 +52,13 @@
   };
   github-comment = {
     pname = "github-comment";
-    version = "v6.3.2";
+    version = "v6.4.1";
     src = fetchFromGitHub {
       owner = "suzuki-shunsuke";
       repo = "github-comment";
-      rev = "v6.3.2";
+      rev = "v6.4.1";
       fetchSubmodules = false;
-      sha256 = "sha256-6aRgbxa5C6pgYgeTE/vRcqvW1iQjzPxJwQbZMmUo/90=";
+      sha256 = "sha256-wMSYGpwb0HNcfpaYg1wC0kBpV0dmhC1o3IWPuUrwx3U=";
     };
   };
   leaf = {
