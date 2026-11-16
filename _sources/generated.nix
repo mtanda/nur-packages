@@ -19,13 +19,13 @@
   };
   deck = {
     pname = "deck";
-    version = "v1.24.1";
+    version = "v1.24.4";
     src = fetchFromGitHub {
       owner = "k1LoW";
       repo = "deck";
-      rev = "v1.24.1";
+      rev = "v1.24.4";
       fetchSubmodules = false;
-      sha256 = "sha256-uLuVHgI0Mp6d3ZZoKK6I+Hcg3uQ0iYUle1E0exbf2h4=";
+      sha256 = "sha256-lTBanbAb0klUrqhvhyht4u+K006YgiXya2ovg/ElrL4=";
     };
   };
   diffyml = {
@@ -52,13 +52,13 @@
   };
   github-comment = {
     pname = "github-comment";
-    version = "v6.3.2";
+    version = "v6.4.1";
     src = fetchFromGitHub {
       owner = "suzuki-shunsuke";
       repo = "github-comment";
-      rev = "v6.3.2";
+      rev = "v6.4.1";
       fetchSubmodules = false;
-      sha256 = "sha256-6aRgbxa5C6pgYgeTE/vRcqvW1iQjzPxJwQbZMmUo/90=";
+      sha256 = "sha256-wMSYGpwb0HNcfpaYg1wC0kBpV0dmhC1o3IWPuUrwx3U=";
     };
   };
   leaf = {
