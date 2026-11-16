@@ -52,13 +52,13 @@
   };
   github-comment = {
     pname = "github-comment";
-    version = "v6.3.2";
+    version = "v6.4.2";
     src = fetchFromGitHub {
       owner = "suzuki-shunsuke";
       repo = "github-comment";
-      rev = "v6.3.2";
+      rev = "v6.4.2";
       fetchSubmodules = false;
-      sha256 = "sha256-6aRgbxa5C6pgYgeTE/vRcqvW1iQjzPxJwQbZMmUo/90=";
+      sha256 = "sha256-xoUJvcTnvZRxiM/iJLTUMYb1SA1Xg4MdaoPyjx02QJw=";
     };
   };
   leaf = {
