@@ -14,7 +14,7 @@
 | diffyml | v1.7.1 | A fast, structural YAML diff tool |
 | difit | v5.0.7 | A lightweight CLI tool to display Git diffs in GitHub-style web viewer |
 | fff-mcp | 0.11.0 | The fastest and most accurate file search toolkit for AI agents (MCP server) |
-| github-comment | v6.3.2 | CLI to create and hide GitHub comments |
+| github-comment | v6.4.2 | CLI to create and hide GitHub comments |
 | hunk | 0.17.0 | Review-first terminal diff viewer for agentic coders |
 | leaf | 1.26.0 | A friendly terminal Markdown previewer |
 | lightpanda | 0.3.4 | Lightweight browser engine for AI agents and web automation |
