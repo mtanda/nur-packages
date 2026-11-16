@@ -76,12 +76,12 @@
             "name": null,
             "owner": "yoshiko-pg",
             "repo": "difit",
-            "rev": "v5.0.7",
-            "sha256": "sha256-LwqfnZTo4m+B2rpMWY0SEomsVtSuCxqnM24D9bq9j40=",
+            "rev": "v5.0.12",
+            "sha256": "sha256-1EoC5t+8KjNmwKg5lFLig26tzCnp2byhkeGjctVdRls=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v5.0.7"
+        "version": "v5.0.12"
     },
     "github-comment": {
         "cargoLock": null,
@@ -97,12 +97,12 @@
             "name": null,
             "owner": "suzuki-shunsuke",
             "repo": "github-comment",
-            "rev": "v6.3.2",
-            "sha256": "sha256-6aRgbxa5C6pgYgeTE/vRcqvW1iQjzPxJwQbZMmUo/90=",
+            "rev": "v6.4.1",
+            "sha256": "sha256-wMSYGpwb0HNcfpaYg1wC0kBpV0dmhC1o3IWPuUrwx3U=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v6.3.2"
+        "version": "v6.4.1"
     },
     "leaf": {
         "cargoLock": null,

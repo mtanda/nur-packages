@@ -41,24 +41,24 @@
   };
   difit = {
     pname = "difit";
-    version = "v5.0.7";
+    version = "v5.0.12";
     src = fetchFromGitHub {
       owner = "yoshiko-pg";
       repo = "difit";
-      rev = "v5.0.7";
+      rev = "v5.0.12";
       fetchSubmodules = false;
-      sha256 = "sha256-LwqfnZTo4m+B2rpMWY0SEomsVtSuCxqnM24D9bq9j40=";
+      sha256 = "sha256-1EoC5t+8KjNmwKg5lFLig26tzCnp2byhkeGjctVdRls=";
     };
   };
   github-comment = {
     pname = "github-comment";
-    version = "v6.3.2";
+    version = "v6.4.1";
     src = fetchFromGitHub {
       owner = "suzuki-shunsuke";
       repo = "github-comment";
-      rev = "v6.3.2";
+      rev = "v6.4.1";
       fetchSubmodules = false;
-      sha256 = "sha256-6aRgbxa5C6pgYgeTE/vRcqvW1iQjzPxJwQbZMmUo/90=";
+      sha256 = "sha256-wMSYGpwb0HNcfpaYg1wC0kBpV0dmhC1o3IWPuUrwx3U=";
     };
   };
   leaf = {
